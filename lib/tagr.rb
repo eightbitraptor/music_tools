@@ -13,9 +13,13 @@ class Tagr
     end
 
     def album_image
-      @info = LastFM.album_info(artist, album)
-      image = @info.css('album image[size=extralarge]').text
-      save_image(open(image).read)
+      if File.exists?(image_path)
+        return File.open(image_path).read
+      else
+        @info = LastFM.album_info(artist, album)
+        image = @info.css('album image[size=extralarge]').text
+        save_image(open(image).read)
+      end
     end
 
     def songs
@@ -24,10 +28,18 @@ class Tagr
 
     private
     def save_image(image)
-      cover_title = Digest::SHA1.hexdigest(artist + album)
-      File.open(File.expand_path("./#{cover_title}.png", album_path), 'w') { |f|
+      File.open(File.expand_path(image_path, album_path), 'w') { |f|
         f.write image
       }
+      image
+    end
+
+    def cover_title
+      Digest::SHA1.hexdigest(artist + album)
+    end
+
+    def image_path
+      File.expand_path("./#{cover_title}.png", album_path)
     end
   end
 end
