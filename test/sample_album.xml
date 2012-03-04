@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+<album>
+    <name>A Dead Sinking Story</name>
+    <artist>Envy</artist>
+    <id>1423100</id>
+    <mbid>16f091b9-96dc-4a45-b20a-e5ee44d578d6</mbid>
+    <url>http://www.last.fm/music/Envy/A+Dead+Sinking+Story</url>
+    <releasedate>    25 Apr 2003, 00:00</releasedate>
+    <image size="small">http://userserve-ak.last.fm/serve/34s/34880561.png</image>
+    <image size="medium">http://userserve-ak.last.fm/serve/64s/34880561.png</image>
+    <image size="large">http://userserve-ak.last.fm/serve/174s/34880561.png</image>
+    <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/34880561.png</image>
+    <image size="mega">http://userserve-ak.last.fm/serve/_/34880561/A+Dead+Sinking+Story+envy.png</image>
+        <listeners>27677</listeners>
+    <playcount>546248</playcount>
+        <tracks>
+                    <track rank="1">
+    <name>Chain Wandering Deeply</name>
+    <duration>508</duration>
+            <mbid></mbid>
+    <url>http://www.last.fm/music/Envy/_/Chain+Wandering+Deeply</url>
+    <streamable fulltrack="0">0</streamable>
+            <artist>
+        <name>Envy</name>
+        <mbid>8c4519da-59e7-44b5-868d-350dffb30b51</mbid>
+        <url>http://www.last.fm/music/Envy</url>
+    </artist>
+    </track>                <track rank="2">
+    <name>Unrepairable Gentleness</name>
+    <duration>490</duration>
+            <mbid></mbid>
+    <url>http://www.last.fm/music/Envy/_/Unrepairable+Gentleness</url>
+    <streamable fulltrack="0">0</streamable>
+            <artist>
+        <name>Envy</name>
+        <mbid>8c4519da-59e7-44b5-868d-350dffb30b51</mbid>
+        <url>http://www.last.fm/music/Envy</url>
+    </artist>
+    </track>        </tracks>
+    <toptags>
+        <tag>
+	  <name>screamo</name>
+	  <url>http://www.last.fm/tag/screamo</url>
+	</tag>
+        <tag>
+	  <name>2003</name>
+	  <url>http://www.last.fm/tag/2003</url>
+	</tag>
+        <tag>
+	  <name>japanese</name>
+	  <url>http://www.last.fm/tag/japanese</url>
+	</tag>
+        <tag>
+	  <name>post hardcore</name>
+	  <url>http://www.last.fm/tag/post%20hardcore</url>
+	</tag>
+        <tag>
+	  <name>post-rock</name>
+	  <url>http://www.last.fm/tag/post-rock</url>
+	</tag>
+      </toptags>
+   </album></lfm>
