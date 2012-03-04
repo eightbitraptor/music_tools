@@ -24,20 +24,19 @@ describe "Tagr" do
   end
 
   it "doesn't hit the network if the image already exists" do
-    stub(File).exists?{ true }
+    stub(File).file?{ true }
     mock(File).open(@tagr.send(:image_path)){ @image }
     dont_allow(@tagr).save_image
     @tagr.album_image
     verify
   end
 
-  it "pulls out the correct image attribute" do
+  it "pulls out the correct image attribute and extension" do
     stub(LastFM).album_info('envy', 'A Dead Sinking Story'){ @xml }
-    mock(@tagr).open(@image_url){ @image }
-    stub(@tagr).save_image
-
+    mock(@tagr).save_image(@image_url, 'png')
     @tagr.album_image
     verify
   end
+
 end
 
