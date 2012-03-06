@@ -1,9 +1,13 @@
 require_relative 'test_helper'
-require 'last_fm'
+require 'tagr/last_fm'
+
+API_KEY="test-key"
+API_SECRET="sshhhhh"
+
 
 describe "LastFM integration" do
   before do
-    @lastfm = LastFM.new
+    @lastfm = Tagr::LastFM.new
   end
 
   describe "building an api url" do

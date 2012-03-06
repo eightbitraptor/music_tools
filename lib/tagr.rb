@@ -1,47 +1,12 @@
-# encoding: utf-8
 require 'bundler'
 Bundler.setup
 
-require_relative 'last_fm'
+require_relative 'tagr/album'
+require_relative 'tagr/last_fm'
+require_relative 'tagr/image_embedder'
 
-class Tagr
-  class Album
-    attr_reader :artist, :album, :album_path, :image_path
+API_KEY="0784e416003a552034d885f418c77c32"
+API_SECRET="ee64fc64c4727db5e3b034af00a68b7b"
 
-    def initialize(album_path)
-      @album_path = album_path
-      @artist, @album = album_path.split('/').pop(2)
-      @image_path = Dir.glob("#{album_path}/#{cover_title}.*").first || "/dev/null"
-    end
-
-    def album_image
-      if File.file?(image_path)
-        return File.open(image_path).read
-      else
-        info = LastFM.album_info(artist, album)
-        image = info.css('album image[size=extralarge]').text
-
-        extension = image.split('.').last
-        save_image(image, extension)
-      end
-    end
-
-    def songs
-      Dir.glob("#{album_path}/*.mp3")
-    end
-
-    private
-    def save_image(image, extension)
-      @image_path = File.expand_path("#{cover_title}.#{extension}", album_path)
-      File.open(File.expand_path(image_path), 'w') { |f|
-        f.write open(image).read
-      }
-      image
-    end
-
-    def cover_title
-      Digest::SHA1.hexdigest(artist + album)
-    end
-  end
+module Tagr
 end
-

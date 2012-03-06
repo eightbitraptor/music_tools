@@ -1,17 +1,16 @@
 require_relative 'test_helper'
-require 'image_embedder'
+require 'tagr/image_embedder'
 
 describe Tagr::ImageEmbedder do
   describe "processing images" do
     before do
-      @album = Tagr::Album.new("/Users/testuser/Music/envy/A Dead Sinking Story")
-      stub(@album).save_image
+      @album = mock(@album).save_image
 
       @embedder = Tagr::ImageEmbedder.new(@album)
     end
 
     it "iterates over all the songs" do
-      mock(@album).songs { ["1.mp3", "2.mp3"] }
+      mock(@album).songs { [] }
       @embedder.process
       verify
     end

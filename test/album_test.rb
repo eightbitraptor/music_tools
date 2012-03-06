@@ -1,5 +1,12 @@
 require_relative 'test_helper'
-require 'tagr'
+require 'nokogiri'
+
+require 'tagr/album'
+
+module Tagr
+  class LastFM
+  end
+end
 
 describe "Tagr" do
   before do
@@ -15,7 +22,7 @@ describe "Tagr" do
   end
 
   it "queries last.fm for the album image" do
-    mock(LastFM).album_info('envy', 'A Dead Sinking Story') { @xml }
+    mock(Tagr::LastFM).album_info('envy', 'A Dead Sinking Story') { @xml }
     stub(@tagr).save_image
     stub(@tagr).open{ @image }
 
@@ -32,7 +39,7 @@ describe "Tagr" do
   end
 
   it "pulls out the correct image attribute and extension" do
-    stub(LastFM).album_info('envy', 'A Dead Sinking Story'){ @xml }
+    stub(Tagr::LastFM).album_info('envy', 'A Dead Sinking Story'){ @xml }
     mock(@tagr).save_image(@image_url, 'png')
     @tagr.album_image
     verify

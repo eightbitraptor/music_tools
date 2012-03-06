@@ -1,7 +1,4 @@
-require 'tagr'
-require 'id3lib'
-
-class Tagr
+module Tagr
   class ImageEmbedder
     def initialize(album)
       @album = album
