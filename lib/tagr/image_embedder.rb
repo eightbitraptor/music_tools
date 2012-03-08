@@ -1,3 +1,5 @@
+require 'id3lib'
+
 module Tagr
   class ImageEmbedder
     def initialize(album)
@@ -18,8 +20,7 @@ module Tagr
     end
 
     def get_mime_for(file_path)
-      mime = `file --mime -b #{file_path}`
-      mime.split(';').first
+      `file --mime-type -b #{file_path}`.chomp
     end
 
     def process
