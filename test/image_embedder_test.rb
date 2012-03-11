@@ -17,6 +17,7 @@ describe Tagr::ImageEmbedder do
 
     it "iterates over all the songs" do
       mock(@album).songs { [ "1.mp3" ] }
+      any_instance_of(ID3Lib::Tag, :update! => true)
       @embedder.process
       verify
     end
