@@ -1,4 +1,6 @@
 require 'nokogiri'
+require 'uri'
+require 'open-uri'
 require 'cgi'
 
 module Tagr
@@ -6,7 +8,7 @@ module Tagr
     def self.album_info(artist, album)
       instance = new
       query = instance.build_request('album.getinfo', artist: artist, album: album)
-      @response ||= Nokogiri::XML(open(query))
+      Nokogiri::XML(URI.parse(query).read)
     end
 
     def initialize

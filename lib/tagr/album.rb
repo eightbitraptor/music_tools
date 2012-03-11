@@ -29,6 +29,9 @@ module Tagr
 
     private
     def save_image(image, extension)
+      return nil unless extension
+      return nil unless image
+
       @image_path = File.expand_path("#{cover_title}.#{extension}", album_path)
       File.open(File.expand_path(image_path), 'w') { |f|
         f.write open(image).read
